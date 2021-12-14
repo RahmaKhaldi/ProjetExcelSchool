@@ -1,0 +1,104 @@
+<app-statnavbar></app-statnavbar>
+<br>
+<head>
+  
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+<div class="row affix-row">
+  <div class="col-sm-3 col-md-2 affix-sidebar">
+  <div class="sidebar-nav">
+<div class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+    
+   
+    </button>
+    <span class="visible-xs navbar-brand">Menu</span>
+  </div>
+  <div class="navbar-collapse collapse sidebar-navbar-collapse">
+    <ul class="nav navbar-nav" id="sidenav01">
+      <li class="active">
+        <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
+        <h4>
+       Menu
+         </h4>
+        </a>
+        
+      </li>
+      <li>
+        <a href="#" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
+        <span class="glyphicon glyphicon-cloud"></span> SMS <span class="caret pull-right"></span>
+        </a>
+        <div class="collapse" id="toggleDemo" style="height: 0px;">
+          <ul class="nav nav-list">
+          <li><a href="/smsEnvoyer" routerLink="/smsEnvoyer">Envoyer SmS unitaire</a></li>
+          <li><a href="/smsExcel"routerLink="/smsExcel"> Envoyer SMS par Excel</a></li>
+            <li><a href="/smsP" routerLink="/smsP">Envoyer SMS planifier</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="active">
+        <a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
+        <span class="glyphicon glyphicon-inbox"></span> Contact <span class="caret pull-right"></span>
+        </a>
+      </li>
+      <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Boite d'envoie</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Outile<span class="badge pull-right">42</span></a></li>
+      <li><a href=""><span class="glyphicon glyphicon-cog"></span> Support</a></li>
+    </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+</div>
+<div class="col-sm-9 col-md-10 affix-content">
+  <div class="container">
+    
+      <div class="page-header">
+<h3><span class="glyphicon glyphicon-th-list"></span> Contact</h3>
+</div>
+
+<div class="main-content">
+  <div class="container mt-7">
+    <!-- Table -->
+    
+    <div class="card">
+        <div class="card-header">
+            Contact
+        </div>
+        <div class="card-body">
+              
+            <form action="#" method="post" id="contact_form">
+             
+              
+              <div class="subject">
+                <label for="subject">Expéditeur</label>
+                <select placeholder="Subject line" name="subject" id="subject_input" required [(ngModel)]="exped" >
+                  <option disabled hidden selected>Expéditeur</option>
+                  <option   *ngFor="let pd of expediteur" [value]="pd.nom">{{pd.nom}}</option>
+                </select>
+                  
+                    </div>
+              <div class="custom-file">
+                <label for="custom-file"></label>
+                <input type="file"(change)="onFileChanged($event)" class="custom-file-input" id="validatedCustomFile" required>
+                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+              </div>
+              
+              <div class="submit">
+                <input type="submit" (click)="addSMS(exped.idExpediteur)" value="Send Message" id="form_button" />
+              </div>
+            </form><!-- // End form -->
+            <div *ngIf="showSuccess" class="alert alert-success" role="alert">
+              Votre Contact a été ajouter avec succée !   
+                </div>
+              </div>
+          </div><!-- // End #container -->  </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<app-footer></app-footer>
+
